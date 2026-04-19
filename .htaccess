@@ -1,13 +1,15 @@
-RewriteEngine On
+Options -Indexes
+Options -MultiViews
 
+RewriteEngine On
 RewriteBase /add_credential/
 
+# Redirect from file.php to file
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /add_credential/([^\ ]+)\.php
-RewriteRule ^ /add_credential/%1 [L,R=301]
+RewriteRule ^ %1 [L,R=301]
 
+# Internally map file to file.php
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php [L]
-
-Options -Indexes
