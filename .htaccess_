@@ -1,0 +1,23 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Remove .php extension from URLs
+# If the request is not a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# If the request is not a file
+RewriteCond %{REQUEST_FILENAME} !-f
+# If the request with .php extension exists
+RewriteCond %{REQUEST_FILENAME}.php -f
+# Rewrite to add .php extension internally
+RewriteRule ^(.*)$ $1.php [L]
+
+# Redirect .php URLs to clean URLs (optional - for SEO)
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# Prevent directory listing
+Options -Indexes
+
+# Set default charset
+AddDefaultCharset UTF-8
+Options -Indexes

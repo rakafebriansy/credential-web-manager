@@ -1,0 +1,353 @@
+[12-Dec-2025 07:42:16 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 111
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[12-Dec-2025 07:42:21 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 106
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[12-Dec-2025 08:45:17 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 111
+    [field] => cdn_status
+    [value] => Cloudflare
+)
+
+[12-Dec-2025 08:45:19 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 106
+    [field] => cdn_status
+    [value] => Cloudflare
+)
+
+[12-Dec-2025 08:45:22 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 111
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[12-Dec-2025 08:45:24 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 106
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[12-Dec-2025 08:45:30 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 114
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[12-Dec-2025 08:46:40 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 113
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[12-Dec-2025 08:48:26 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 113
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[12-Dec-2025 08:48:32 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 112
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[12-Dec-2025 08:49:14 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 110
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[12-Dec-2025 09:04:51 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 107
+    [field] => cdn_status
+    [value] => Cloudflare 4
+)
+
+[12-Dec-2025 09:05:09 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 49
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[12-Dec-2025 09:05:12 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 51
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[12-Dec-2025 09:07:35 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 48
+    [field] => cdn_status
+    [value] => Niagahoster
+)
+
+[12-Dec-2025 09:16:12 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 50
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[13-Dec-2025 03:04:16 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => test
+)
+
+[16-Dec-2025 06:55:01 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 152
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[16-Dec-2025 06:55:02 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 151
+    [field] => cdn_status
+    [value] => Cloudflare 2
+)
+
+[16-Dec-2025 06:55:11 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 126
+    [field] => cdn_status
+    [value] => Cloudflare 3
+)
+
+[17-Dec-2025 09:09:48 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 157
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:09:50 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 25
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:06 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 123
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:07 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 129
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:09 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 157
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:11 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 24
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:19 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 25
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:21 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 23
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:23 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 14
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:25 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 22
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:27 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 160
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:28 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 128
+    [field] => cdn_status
+    [value] => Cloudflare 1
+)
+
+[17-Dec-2025 09:10:45 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 128
+    [field] => cdn_status
+    [value] => Cloudflare
+)
+
+[19-Dec-2025 08:34:56 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 109
+    [field] => cdn_status
+    [value] => Cloudflare 4
+)
+
+[19-Dec-2025 08:34:57 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 108
+    [field] => cdn_status
+    [value] => Cloudflare 4
+)
+
+[19-Dec-2025 08:40:58 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 136
+    [field] => cdn_status
+    [value] => Niagahoster
+)
+
+[24-Dec-2025 08:02:09 UTC] PHP Warning:  session_start(): The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in /home/submitj1/syntax.co.id/public_html/one/config/init.php on line 2
+[24-Dec-2025 08:02:09 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home/submitj1/syntax.co.id/public_html/one/config/init.php on line 2
+[31-Dec-2025 03:14:45 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 155
+    [field] => cdn_status
+    [value] => Cloudflare 4
+)
+
+[31-Dec-2025 03:17:47 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 167
+    [field] => cdn_status
+    [value] => Cloudflare 4
+)
+
+[01-Jan-2026 02:37:46 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 37
+    [field] => cdn_status
+    [value] => Bunny
+)
+
+[01-Jan-2026 02:37:47 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 31
+    [field] => cdn_status
+    [value] => Bunny
+)
+
+[01-Jan-2026 02:37:49 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 163
+    [field] => cdn_status
+    [value] => Bunny
+)
+
+[01-Jan-2026 02:37:51 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 39
+    [field] => cdn_status
+    [value] => Bunny
+)
+
+[06-Jan-2026 07:40:53 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => update
+    [website_id] => 169
+    [field] => cdn_status
+    [value] => Cloudflare 4
+)
+
+[06-Jan-2026 07:56:53 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => test
+)
+
+[06-Jan-2026 07:56:56 UTC] Cloudflare Action - POST data: Array
+(
+    [action] => test
+)
+

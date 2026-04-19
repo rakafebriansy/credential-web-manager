@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteBase /add_credential/
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /add_credential/([^\ ]+)\.php
+RewriteRule ^ /add_credential/%1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+Options -Indexes

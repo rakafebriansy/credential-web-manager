@@ -1,0 +1,871 @@
+{
+  "info": {
+    "name": "E-Report Dashboard API",
+    "description": "API collection for E-Report Dashboard - Website Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": null,
+    "version": "1.0.0"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/ereport",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/login.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "username", "value": "admin" },
+                { "key": "password", "value": "admin123" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Web Progress",
+      "item": [
+        {
+          "name": "Update Web Progress",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/web_progress_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "hasil_check" },
+                { "key": "value", "value": "Korespondensi Aktif" }
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "pm.test('Success is true or unauthorized', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.success === true || jsonData.message === 'Unauthorized').to.be.true;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update Versi OJS",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/web_progress_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "versi_ojs" },
+                { "key": "value", "value": "OJS 3.4" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Plugin Allow Upload",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/web_progress_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "plugin_allow_upload" },
+                { "key": "value", "value": "Done" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Invalid Field Test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/web_progress_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "invalid_field" },
+                { "key": "value", "value": "test" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "pm.test('Invalid field returns error', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.success).to.be.false;",
+                  "    pm.expect(jsonData.message).to.include('Invalid');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cloudflare CDN",
+      "item": [
+        {
+          "name": "Test Connection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/cloudflare_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "test" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update CDN Status",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/cloudflare_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update" },
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "cdn_status" },
+                { "key": "value", "value": "Cloudflare" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid CDN Value Test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/cloudflare_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update" },
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "cdn_status" },
+                { "key": "value", "value": "InvalidCDN" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Invalid CDN value returns error', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.success).to.be.false;",
+                  "    pm.expect(jsonData.message).to.include('Invalid');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LP Security",
+      "item": [
+        {
+          "name": "Update Security Field",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/lp_security_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update" },
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "ganti_wp_admin" },
+                { "key": "value", "value": "Done" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update Wordfence Plugin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/lp_security_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update" },
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "plugin_wordfence" },
+                { "key": "value", "value": "Done" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Invalid Field Test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/lp_security_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update" },
+                { "key": "website_id", "value": "1" },
+                { "key": "field", "value": "invalid_field" },
+                { "key": "value", "value": "test" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "pm.test('Invalid field returns error', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.success).to.be.false;",
+                  "    pm.expect(jsonData.error).to.include('Invalid');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Website Credentials",
+      "item": [
+        {
+          "name": "Create Credential",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/website_credentials_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "create" },
+                { "key": "website_id", "value": "1" },
+                { "key": "holding", "value": "TEST" },
+                { "key": "username_admin", "value": "testuser" },
+                { "key": "password_admin", "value": "testpass123" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Credential",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/website_credentials_action.php?action=delete&id=1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tickets",
+      "item": [
+        {
+          "name": "Create Ticket",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "create" },
+                { "key": "website_id", "value": "1" },
+                { "key": "category", "value": "Abstrak hilang" },
+                { "key": "priority", "value": "High" },
+                { "key": "nama_pj", "value": "John Doe" },
+                { "key": "title", "value": "Test Ticket" },
+                { "key": "description", "value": "This is a test ticket description" },
+                { "key": "assigned_to", "value": "Abdul Fazri" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 302 (redirect)', function () {",
+                  "    pm.response.to.have.status(302);",
+                  "});",
+                  "pm.test('Redirects to tickets page', function () {",
+                  "    pm.expect(pm.response.headers.get('Location')).to.include('tickets');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Ticket with Custom Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "create" },
+                { "key": "website_id", "value": "1" },
+                { "key": "category", "value": "Custom" },
+                { "key": "custom_category", "value": "Custom Issue Type" },
+                { "key": "priority", "value": "Critical" },
+                { "key": "nama_pj", "value": "Jane Smith" },
+                { "key": "title", "value": "Custom Category Test" },
+                { "key": "description", "value": "Testing custom category functionality" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Ticket",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update" },
+                { "key": "id", "value": "1" },
+                { "key": "website_id", "value": "1" },
+                { "key": "category", "value": "Tidak bisa uploud" },
+                { "key": "priority", "value": "Low" },
+                { "key": "nama_pj", "value": "John Doe Updated" },
+                { "key": "title", "value": "Updated Test Ticket" },
+                { "key": "description", "value": "This is an updated test ticket description" },
+                { "key": "assigned_to", "value": "Andika" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Comment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "add_comment" },
+                { "key": "ticket_id", "value": "1" },
+                { "key": "comment", "value": "This is a test comment on the ticket" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Ticket Status",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update_status" },
+                { "key": "ticket_id", "value": "1" },
+                { "key": "status", "value": "In Progress" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Invalid Action Test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "invalid_action" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 302 (redirect)', function () {",
+                  "    pm.response.to.have.status(302);",
+                  "});",
+                  "pm.test('Redirects to tickets page', function () {",
+                  "    pm.expect(pm.response.headers.get('Location')).to.include('tickets');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Ticket - Missing Fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "create" },
+                { "key": "website_id", "value": "1" },
+                { "key": "category", "value": "Bug Report" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 302 (redirect)', function () {",
+                  "    pm.response.to.have.status(302);",
+                  "});",
+                  "pm.test('Redirects to tickets page', function () {",
+                  "    pm.expect(pm.response.headers.get('Location')).to.include('tickets');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update Status - Invalid Status",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "update_status" },
+                { "key": "ticket_id", "value": "1" },
+                { "key": "status", "value": "Invalid Status" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Ticket with Invalid Priority",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "create" },
+                { "key": "website_id", "value": "1" },
+                { "key": "category", "value": "Abstrak hilang" },
+                { "key": "priority", "value": "Invalid Priority" },
+                { "key": "nama_pj", "value": "Test User" },
+                { "key": "title", "value": "Priority Test Ticket" },
+                { "key": "description", "value": "Testing invalid priority handling" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 302 (redirect)', function () {",
+                  "    pm.response.to.have.status(302);",
+                  "});",
+                  "pm.test('Redirects to tickets page', function () {",
+                  "    pm.expect(pm.response.headers.get('Location')).to.include('tickets');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Ticket with All Priority Levels",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/tickets_action.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "action", "value": "create" },
+                { "key": "website_id", "value": "1" },
+                { "key": "category", "value": "Ojs/Lp terkena judol" },
+                { "key": "priority", "value": "Critical" },
+                { "key": "nama_pj", "value": "Priority Tester" },
+                { "key": "title", "value": "Critical Priority Test" },
+                { "key": "description", "value": "Testing all priority levels: Low, Medium, High, Critical" },
+                { "key": "assigned_to", "value": "Isma" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 302 (redirect)', function () {",
+                  "    pm.response.to.have.status(302);",
+                  "});",
+                  "pm.test('Redirects to tickets page', function () {",
+                  "    pm.expect(pm.response.headers.get('Location')).to.include('tickets');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scanners",
+      "item": [
+        {
+          "name": "Scan Website Content",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/scan_website.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "url", "value": "https://example.com" },
+                { "key": "id", "value": "1" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Scan Google Index",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/scan_google.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "url", "value": "https://example.com" },
+                { "key": "id", "value": "1" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "pm.test('Has domain field', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('domain');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Scan Vulnerability",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "{{base_url}}/scan_vulnerability.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "url", "value": "https://example.com" },
+                { "key": "id", "value": "1" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is JSON', function () {",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "pm.test('Has risk_level field', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('risk_level');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+/* Rich Text Editor Styles */
+.rich-editor-container {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.rich-editor-toolbar {
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.editor-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: #6c757d;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+}
+
+.editor-btn:hover {
+    background: #e9ecef;
+    color: #495057;
+    border-color: #adb5bd;
+}
+
+.editor-btn:active,
+.editor-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.toolbar-separator {
+    width: 1px;
+    height: 24px;
+    background: #dee2e6;
+    margin: 0 4px;
+}
+
+.rich-editor-content {
+    min-height: 150px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    outline: none;
+    background: white;
+}
+
+.rich-editor-content:focus {
+    box-shadow: inset 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.rich-editor-content.drag-over {
+    background: #f0f2ff;
+    border: 2px dashed #667eea;
+}
+
+.rich-editor-content p {
+    margin: 0 0 10px 0;
+}
+
+.rich-editor-content p:last-child {
+    margin-bottom: 0;
+}
+
+.rich-editor-content ul,
+.rich-editor-content ol {
+    margin: 10px 0;
+    padding-left: 30px;
+}
+
+.rich-editor-content li {
+    margin-bottom: 5px;
+}
+
+.rich-editor-content img.editor-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 10px 0;
+    display: block;
+}
+
+.rich-editor-content img.editor-image:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.image-placeholder {
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+    color: #6c757d;
+}
+
+.placeholder-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.upload-progress-container {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.upload-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    animation: progressAnimation 2s ease-in-out infinite;
+}
+
+@keyframes progressAnimation {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Paste hint */
+.rich-editor-content:empty:before {
+    content: "Type your message here... You can paste images directly (Ctrl+V) or drag & drop them.";
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .rich-editor-toolbar {
+        padding: 6px 8px;
+        gap: 2px;
+    }
+    
+    .editor-btn {
+        min-width: 28px;
+        height: 28px;
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+    
+    .toolbar-separator {
+        height: 20px;
+        margin: 0 2px;
+    }
+    
+    .rich-editor-content {
+        padding: 12px;
+        font-size: 13px;
+        min-height: 120px;
+    }
+}
+
+/* Image modal for viewing */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    cursor: pointer;
+}
+
+.image-modal-content {
+    position: relative;
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 800px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.image-modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.image-modal-close:hover {
+    color: #ccc;
+}
+
+/* Editor focus styles */
+.rich-editor-container:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Custom scrollbar for editor content */
+.rich-editor-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.rich-editor-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.rich-editor-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.rich-editor-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
